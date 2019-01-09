@@ -1,27 +1,23 @@
-{% set name = "ezodf" %}
 {% set version = "0.3.2" %}
-{% set bundle = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash = "000da534f689c6d55297a08f9e2ed7eada9810d194d31d164388162fb391122d" %}
 
 package:
-  name: {{ name|lower }}
+  name: ezodf
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  {{ hash_type }}: {{ hash }}
+  url: https://pypi.org/packages/source/e/ezodf/ezodf-{{ version }}.tar.gz
+  sha256: 000da534f689c6d55297a08f9e2ed7eada9810d194d31d164388162fb391122d
 
 build:
   number: 2
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  
 
 requirements:
   host:
     - python
     - pip
-
   run:
     - python
     - lxml
@@ -35,9 +31,11 @@ about:
   license_file: {{ RECIPE_DIR }}/LICENSE.txt
   license: MIT
   license_family: MIT
-  summary: 'A Python package to create/manipulate OpenDocumentFormat files.'
+  summary: 'A Python package to create/manipulate OpenDocumentFormat files'
   dev_url: https://github.com/T0ha/ezodf
 
 extra:
   recipe-maintainers:
     - pmlandwehr
+    - ocefpaf
+
