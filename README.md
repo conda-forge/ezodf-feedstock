@@ -9,7 +9,7 @@ Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
-Summary: A Python package to create/manipulate OpenDocumentFormat files.
+Summary: A Python package to create/manipulate OpenDocumentFormat files
 
 
 
@@ -109,5 +109,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@ocefpaf](https://github.com/ocefpaf/)
 * [@pmlandwehr](https://github.com/pmlandwehr/)
 
