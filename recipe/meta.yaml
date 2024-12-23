@@ -11,12 +11,13 @@ source:
 build:
   number: 3
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   
 
 requirements:
   host:
     - python {{ python_min }}
+    - setuptools
     - pip
   run:
     - python >={{ python_min }}
@@ -30,7 +31,7 @@ test:
 
 about:
   home: https://github.com/T0ha/ezodf
-  license_file: {{ RECIPE_DIR }}/LICENSE.txt
+  license_file: LICENSE.txt
   license: MIT
   license_family: MIT
   summary: 'A Python package to create/manipulate OpenDocumentFormat files'
