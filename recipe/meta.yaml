@@ -9,26 +9,29 @@ source:
   sha256: 000da534f689c6d55297a08f9e2ed7eada9810d194d31d164388162fb391122d
 
 build:
-  number: 2
+  number: 3
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
+    - setuptools
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - lxml
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - ezodf
 
 about:
   home: https://github.com/T0ha/ezodf
-  license_file: {{ RECIPE_DIR }}/LICENSE.txt
+  license_file: LICENSE.txt
   license: MIT
   license_family: MIT
   summary: 'A Python package to create/manipulate OpenDocumentFormat files'
